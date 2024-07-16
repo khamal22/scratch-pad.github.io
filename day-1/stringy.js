@@ -25,7 +25,7 @@ function length(string) {
     // YOUR CODE BELOW HERE //
     //return the length of the string using .length method
     return string.length;
-    
+
 
     // YOUR CODE ABOVE HERE //
 }
@@ -45,10 +45,10 @@ function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
     //create varible to hold modified string
     var result = string.toLowerCase()
-   //use TolowerCase to modify string 
+    //use TolowerCase to modify string 
 
-//return result
-   return result;
+    //return result
+    return result;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -91,16 +91,19 @@ function toUpperCase(string) {
  */
 
 /** 
- * I:
- * O:
- * C:
- * E:
+ * I:the input is a string 
+ * O:the output is a modified string thats dashed
+ * C:n/a
+ * E:n/a
  */
 
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 
-
+    return string.toLowerCase().replace(/\s+/g, '-')
+    //use .replace method to modify the string with the correct parameters
+    //us toLowerCase to modify string
+    //return the result  
 
     // YOUR CODE ABOVE HERE //
 }
@@ -118,16 +121,21 @@ function toDashCase(string) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 /** 
- * I:
- * O:
- * C:
+ * I:a string with a single character 
+ * O:a boolean 
+ * C: case sensitive 
  * E:
  */
 
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-    
+    //find method to find specific value in string 
+    return string.charAt(0).toLowerCase() === char.toLowerCase();
+    // is equal to the provided character, also converted to lowercase
+    //make sure toLowercase is compared equally 
+    //check if the first character of the string, converted to lowercase,
+
 
     // YOUR CODE ABOVE HERE //
 }
@@ -145,17 +153,22 @@ function beginsWith(string, char) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 /** 
- * I:
- * O:
- * C:
+ * I:a string with a single chaaracter 
+ * O:a boolean 
+ * C:case sensentive 
  * E:
  */
 
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+    //create varible to hold the last character 
+    const lastChar = string[string.length - 1].toLowerCase();
+    //create varible to make sure character is lowercased
+    const charLower = char.toLowerCase();
+    // Convert both string's last character and char to lowercase
 
-
-
+    //return compared values 
+    return lastChar === charLower;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -165,8 +178,8 @@ function endsWith(string, char) {
  * TIP: What's the operator to concatenate two Strings?
  */
 /** 
- * I:
- * O:
+ * I:two strings 
+ * O:the two strings concatenated together into one 
  * C:
  * E:
  */
@@ -174,7 +187,8 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //figure out what operater is used to concat strings 
+    return stringOne + stringTwo
 
     // YOUR CODE ABOVE HERE //
 }
@@ -190,8 +204,8 @@ function concat(stringOne, stringTwo) {
  *      in an Array called args.
  */
 /** 
- * I:
- * O:
+ * I: any number of strings 
+ * O: all the string values combined 
  * C:
  * E:
  */
@@ -199,8 +213,8 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
-
+    //use join method to combine strings stored in args 
+    return args.join('');
     // YOUR CODE ABOVE HERE //
 }
 
@@ -214,8 +228,8 @@ function join(stringOne, stringTwo) {
  * TIP: What property of the String do we need to compare?
  */
 /** 
- * I:
- * O:
+ * I:two strings 
+ * O:the longest string out of the two 
  * C:
  * E:
  */
@@ -223,7 +237,13 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //create if statement using the .length property to determine how long each string is
+    // return string one if its longer else return string string two
+    if (stringOne.length >= stringTwo.length) {
+        return stringOne;
+    } else {
+        return stringTwo;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -236,8 +256,8 @@ function longest(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 /** 
- * I:
- * O:
+ * I:two strings 
+ * O: a number indicating the value of the aphabetical order of the string 
  * C:
  * E:
  */
@@ -245,7 +265,17 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //create 3 if statement to compare strings 
+    if (stringOne < stringTwo) {
+        return 1;
+    } else if (stringOne > stringTwo) {
+        return -1
+    } else {
+        return 0
+    }
+    //return 1 if string one is less than string two 
+    //return - 1 if stringone is greater than stringtwo 
+    //return 0 if there equal 
 
     // YOUR CODE ABOVE HERE //
 }
@@ -259,14 +289,24 @@ function sortAscending(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 /** 
- * I:
- * O:
+ * I:two strings 
+ * O:a number indicating the value of the aphabetical order of the string 
  * C:
  * E:
  */
 
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    if (stringOne < stringTwo) {
+        return -1;
+    } else if (stringOne > stringTwo) {
+        return 1;
+    } else {
+        return 0;
+    }
+ //return -1 if string one is less than string two 
+    //return 1 if stringone is greater than stringtwo 
+    //return 0 if there equal 
 
 
 
@@ -276,7 +316,7 @@ function sortDescending(stringOne, stringTwo) {
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
+if ((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports.length = length;
