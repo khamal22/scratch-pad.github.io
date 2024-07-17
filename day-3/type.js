@@ -32,6 +32,7 @@ function isArray(value) {
  * with typeof.
  * 
  */
+//look up how to figure out 
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     

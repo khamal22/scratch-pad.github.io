@@ -12,9 +12,12 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+// write three different if statements 
+//find out how to verify if a number is a multiple of another in code 
+//figure out how to print random numbers
 
 
-
+//
     // YOUR CODE GOES ABOVE HERE //
 }
 

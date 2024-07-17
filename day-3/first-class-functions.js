@@ -14,7 +14,9 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-   
+   return function(value){
+        return value > base
+   }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -26,7 +28,9 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function(value){
+      return value < base
+    }
    
     
     
@@ -38,9 +42,17 @@ function createLessThanFilter(base) {
  * Function that tests whether a given String starts with the startsWith 
  * character.
  */
+/*
+I:a startswith character   
+O:
+C:
+E:
+*/
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function(string){
+       
+    }
     
     
     
@@ -77,7 +89,13 @@ function modifyStrings(strings, modify) {
     // YOUR CODE ABOVE HERE //
 }
 
+var uppercase = modifyStrings(['alex', 'francis'], function(string){
+    return string.toUpperCase();
+}); // ['ALEX', 'FRANCIS]
 
+var addedExclamation = modifyStrings(['alex', 'francis'], function(string){
+    return string + "!";
+}); // ['alex!', 'francis!']
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
@@ -96,8 +114,13 @@ function allStringsPass(strings, test) {
     
     // YOUR CODE ABOVE HERE //
 }
+var beginsWithA = allStringsPass(['alex', 'aaron'], function(str){
+    return str[0] === 'a';
+}); // true (because all strings begin with A)
 
-
+var fiveOrMoreLetters = allStringsPass(['alex', 'francis', 'aaron'], function(str){
+    return str.length > 4;
+}); // false (because alex's length is less than 5)
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
