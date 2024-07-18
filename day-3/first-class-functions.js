@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { functionsIn, startsWith } = require("lodash");
+
 /**
  * IN CLASS EXERCISE: FIRST CLASS FUNCTIONS
  */
@@ -28,10 +30,20 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    return function(value){
-      return value < base
-    }
-   
+    // Return the inner function
+    return function(value) {
+        // Handle cases where base is a string or number
+        if (typeof base === 'string' && typeof value === 'string') {
+            // String comparison
+            return value < base;
+        } else if (typeof base === 'number' && typeof value === 'number') {
+            // Numerical comparison
+            return value < base;
+        } else {
+            // Handle mixed type or unsupported types gracefully
+            throw new Error('Unsupported types for comparison');
+        }
+    };
     
     
     // YOUR CODE ABOVE HERE //
@@ -44,15 +56,23 @@ function createLessThanFilter(base) {
  */
 /*
 I:a startswith character   
-O:
+O:a function that returns whether the given string is starts with character 
 C:
 E:
 */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    return function(string){
-       
-    }
+     //convert to avoid case sensitivity 
+     var startsWithLower = startsWith.toLowerCase();
+     //return function
+     return function(str){
+         var firstChar = str.charAt(0).toLowerCase()
+
+         return firstChar === startsWithLower;
+     }
+     //convert first character of the string to lowwercase 
+     //check to see if first character startswithlowercase  
+   
     
     
     
@@ -64,9 +84,25 @@ function createStartsWithFilter(startsWith) {
  * Function that tests whether a given String ends with the endsWith 
  * character.
  */
+/*
+I:
+O:
+C:
+E:
+*/
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
+     // Convert endsWith to lowercase (for case insensitivity)
+     var endsWithLower = endsWith.toLowerCase();
     
+     // Return the inner function
+     return function(str) {
+         // Convert last character of str to lowercase
+         var lastChar = str.charAt(str.length - 1).toLowerCase();
+         
+         // Check if the last character matches endsWithLower
+         return lastChar === endsWithLower;
+     };
     
     
     
