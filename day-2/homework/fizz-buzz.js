@@ -12,11 +12,25 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-// write three different if statements 
-//find out how to verify if a number is a multiple of another in code 
-//figure out how to print random numbers
-
-
+// Loop from 1 to 100
+for (let i = 1; i <= 100; i++) {
+    // Check if the number is a multiple of both 3 and 5
+    if (i % 15 === 0) {
+      console.log("FizzBuzz");
+    } 
+    // Check if the number is a multiple of 3
+    else if (i % 3 === 0) {
+      console.log("Fizz");
+    } 
+    // Check if the number is a multiple of 5
+    else if (i % 5 === 0) {
+      console.log("Buzz");
+    } 
+    // If none of the above, print the number itself
+    else {
+      console.log(i);
+    }
+  }
 //
     // YOUR CODE GOES ABOVE HERE //
 }
