@@ -21,9 +21,32 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
+/*
+I:
+O:
+C:
+E:
+*/
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+      // Create an array to collect the output
+      let output = [];
+
+      // Check if start is less than or equal to end
+      if (start <= end) {
+          // Use a for loop to iterate from start to end inclusively
+          for (let i = start; i <= end; i++) {
+              output.push(i);
+          }
+      } else {
+          // Use a for loop to iterate from start to end in reverse order
+          for (let i = start; i >= end; i--) {
+              output.push(i);
+          }
+      }
+  
+      // Return the array containing the range of integers
+      return output;
     
     
     

@@ -118,7 +118,17 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
+     // Create an empty array to collect the modified strings
+  let modifiedStrings = [];
+
+  // Loop over the input array of strings
+  for (let i = 0; i < strings.length; i++) {
+    // Apply the modify function to each string and collect the result
+    modifiedStrings.push(modify(strings[i]));
+  }
+
+  // Return the array of modified strings
+  return modifiedStrings;
     
     
     
@@ -144,7 +154,16 @@ var addedExclamation = modifyStrings(['alex', 'francis'], function(string){
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
+     // Loop over the input array of strings
+  for (let i = 0; i < strings.length; i++) {
+    // Apply the test function to each string
+    if (!test(strings[i])) {
+      // If any string does not pass the test, return false
+      return false;
+    }
+  }
+  // If all strings pass the test, return true
+  return true;
     
     
     

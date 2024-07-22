@@ -35,8 +35,13 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-    
-} 
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    };
+
+}
 
 
 function makeContactList() {
@@ -44,17 +49,40 @@ function makeContactList() {
      * You need something here to hold contacts. See length api for a hint:
      */
     var contacts = [];
-    
+
     return {
         // we implemented the length api for you //
-        length: function() {
+        length: function () {
             return contacts.length;
         },
-        addContact: function(contact){
+        addContact: function (contact) {
             contacts.push(contact)
+        },// Method to find a contact by full name
+        findContact: function (fullName) {
+            for (let i = 0; i < contacts.length; i++) {
+                let contact = contacts[i];
+                if (`${contact.nameFirst} ${contact.nameLast}` === fullName) {
+                    return contact;
+                }
+            }
+            return undefined;
+        },
+        // Method to remove a contact from the list
+        removeContact: function (contact) {
+            for (let i = 0; i < contacts.length; i++) {
+                if (contacts[i] === contact) {
+                    contacts.splice(i, 1);
+                    return;
+                }
+            }
+        },
+        // Method to print all contact names
+        printAllContactNames: function () {
+            return contacts.map(contact => `${contact.nameFirst} ${contact.nameLast}`).join('\n');
         }
-    }
+    };
 }
+
 
 
 
@@ -65,8 +93,8 @@ function makeContactList() {
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
-(typeof process.versions.node !== 'undefined')) {
+if ((typeof process !== 'undefined') &&
+    (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports.makeContact = makeContact;
     module.exports.makeContactList = makeContactList;
