@@ -12,14 +12,20 @@
  * TIP: In JavaScript, how can we decipher the length of a String?
  * work?
  */
-
+/*
+I: function takes in a string
+O: return the number representing the input string
+C:n/a
+E:n/a
+*/
 
 
 
 function length(string) {
     // YOUR CODE BELOW HERE //
 
-   
+   //return the string property of the input string 
+   return string.length;
     
     // YOUR CODE ABOVE HERE //
 }
@@ -27,9 +33,17 @@ function length(string) {
 /**
  * Given an input String, return a new String forced to lowercase.
  */
+
+/*
+I: a string 
+O:a new string forced to lowercase 
+C:
+E:
+*/
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
    
+    return string.toLowerCase()
 
     // YOUR CODE ABOVE HERE //
 }
@@ -37,9 +51,17 @@ function toLowerCase(string) {
 /**
  * Given an input String, return a new String forced to uppercase.
  */
+
+/*
+I:a string 
+O: a string thats forced to be uppercased
+C:
+E:
+*/
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 
+    return string.toUpperCase()
 
 
     // YOUR CODE ABOVE HERE //
@@ -58,9 +80,18 @@ function toUpperCase(string) {
  *
  *      See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Using_global_and_ignore_with_replace()
  */
+
+/*
+I:an input string 
+O:a new string forced to dash cased 
+C:
+E:
+*/
+
+
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
+ return string.toLowerCase().replace(/\s/g, '-')
 
 
     // YOUR CODE ABOVE HERE //
@@ -78,9 +109,17 @@ function toDashCase(string) {
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
+
+
+
+/*
+I:a string and a single character 
+O: A boolean determining if the 
+C:
+E:
+*/
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
     
 
     // YOUR CODE ABOVE HERE //
@@ -111,9 +150,17 @@ function endsWith(string, char) {
  *
  * TIP: What's the operator to concatenate two Strings?
  */
+
+
+/*
+I:two strings 
+O:return the strings concatenated together 
+C:
+E:
+*/
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringOne + stringTwo
 
 
     // YOUR CODE ABOVE HERE //
@@ -129,6 +176,13 @@ function concat(stringOne, stringTwo) {
  * TIP: This Function pulls out all the arguments passed to it and stores them
  *      in an Array called args.
  */
+
+/*
+I:
+O:
+C:
+E:
+*/
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
@@ -148,8 +202,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    if(stringOne.length > stringTwo.length){
+        return stringOne
+    }
+    else if(stringTwo.length > stringOne.length){
+        return stringTwo
+    }
+    
 
     // YOUR CODE ABOVE HERE //
 }
@@ -164,6 +223,12 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    if (stringOne[0] > stringTwo[0]){
+        return 1;
+} else if (stringOne[0] < stringTwo[0]){
+        return -1;
+} else if (stringOne[0] === stringTwo[0]){
+        return 0;}
 
 
     // YOUR CODE ABOVE HERE //
