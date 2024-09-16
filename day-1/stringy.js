@@ -24,9 +24,9 @@ E:n/a
 function length(string) {
     // YOUR CODE BELOW HERE //
 
-   //return the string property of the input string 
-   return string.length;
-    
+    //return the string property of the input string 
+    return string.length;
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -42,7 +42,7 @@ E:
 */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-   
+
     return string.toLowerCase()
 
     // YOUR CODE ABOVE HERE //
@@ -91,7 +91,7 @@ E:
 
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
- return string.toLowerCase().replace(/\s/g, '-')
+    return string.toLowerCase().replace(/\s/g, '-')
 
 
     // YOUR CODE ABOVE HERE //
@@ -120,7 +120,11 @@ E:
 */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    
+    if (string[0].toLowerCase() === char.toLowerCase()) {
+        return true;
+    } else if (string[0].toLowerCase() !== char.toLowerCase()) {
+        return false
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -139,7 +143,11 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    if (string[string.length - 1].toLowerCase() === char.toLowerCase()) {
+        return true;
+    } else if (string[string.length - 1].toLowerCase() !== char.toLowerCase()) {
+        return false
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -160,9 +168,8 @@ E:
 */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    
     return stringOne + stringTwo
-
-
     // YOUR CODE ABOVE HERE //
 }
 
@@ -178,8 +185,8 @@ function concat(stringOne, stringTwo) {
  */
 
 /*
-I:
-O:
+I:any number of strings 
+O:all the stings joined together 
 C:
 E:
 */
@@ -187,6 +194,7 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
 
+   return args.join('');
 
     // YOUR CODE ABOVE HERE //
 }
@@ -202,13 +210,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    if(stringOne.length > stringTwo.length){
+    if (stringOne.length > stringTwo.length) {
         return stringOne
     }
-    else if(stringTwo.length > stringOne.length){
+    else if (stringTwo.length > stringOne.length) {
         return stringTwo
     }
-    
+
 
     // YOUR CODE ABOVE HERE //
 }
@@ -220,15 +228,24 @@ function longest(stringOne, stringTwo) {
  *
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
+
+/*
+I:stringOne and stringTwo
+O: 1, -1, 0
+C:
+E:
+*/
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-    if (stringOne[0] > stringTwo[0]){
-        return 1;
-} else if (stringOne[0] < stringTwo[0]){
+    if (stringOne > stringTwo) {
         return -1;
-} else if (stringOne[0] === stringTwo[0]){
-        return 0;}
+    } else if (stringOne < stringTwo) {
+        return 1;
+    } else if (stringOne === stringTwo) {
+
+        return 0;
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -245,6 +262,14 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
+    if (stringOne > stringTwo) {
+        return 1;
+    } else if (stringOne < stringTwo) {
+        return -1;
+    } else if (stringOne === stringTwo) {
+
+        return 0;
+    }
 
 
 
@@ -253,7 +278,7 @@ function sortDescending(stringOne, stringTwo) {
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
+if ((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports.length = length;

@@ -35,8 +35,12 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-    
-} 
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    };
+}
 
 
 
@@ -45,10 +49,35 @@ function makeContactList() {
      * You need something here to hold contacts. See length api for a hint:
      */
     var contacts = [];
-    
+
     return {
         // we implemented the length api for you //
-       
+        length: function () {
+            return contacts.length
+        },
+        addContact: function (contact) {
+            contacts.push(contact)
+        },
+        findContact: function (fullName) {
+            // Split the full name into first and last names
+            let [firstName, lastName] = fullName.split(' ');
+            return contacts.find(contact =>
+                contact.nameFirst === firstName && contact.nameLast === lastName
+            );
+        },
+        removeContact: function (contact) {
+            // Find the index of the contact to be removed
+            let index = contacts.indexOf(contact);
+            if (index !== -1) {
+                contacts.splice(index, 1);
+            }
+        },
+        // Returns a formatted string of all contact names
+        printAllContactNames: function() {
+            return contacts
+                .map(contact => `${contact.nameFirst} ${contact.nameLast}`)
+                .join('\n');
+        }
     }
 }
 
@@ -62,8 +91,8 @@ makeContactList(); // => { length: function(){}, addContact: function(){}, findC
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
-(typeof process.versions.node !== 'undefined')) {
+if ((typeof process !== 'undefined') &&
+    (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports.makeContact = makeContact;
     module.exports.makeContactList = makeContactList;

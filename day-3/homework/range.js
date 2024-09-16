@@ -23,7 +23,24 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+     // Initialize an empty array to collect the output
+     let result = [];
     
+     // Check if we need to increment or decrement
+     if (start <= end) {
+         // Incrementing case
+         for (let i = start; i <= end; i++) {
+             result.push(i);
+         }
+     } else {
+         // Decrementing case
+         for (let i = start; i >= end; i--) {
+             result.push(i);
+         }
+     }
+     
+     // Return the resulting array
+     return result;
     
     
     

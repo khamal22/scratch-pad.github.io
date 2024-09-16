@@ -16,7 +16,11 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    if(Array.isArray(value)){
+        return true
+    }else{
+        return false
+    }
     
     
     
@@ -36,9 +40,22 @@ function isArray(value) {
  * HINT: look up how to figure out if something is an instance of the Date object.
  * 
  */
+
+
+
+/*
+I: any value
+O: true if the value is an object intended as a collection and false otherwise 
+C
+E
+*/
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+     // Check if the value is an object and not null, an array, or a Date
+     return typeof value === 'object' && 
+     value !== null && 
+     !Array.isArray(value) && 
+     !(value instanceof Date);
 
     
     
@@ -57,7 +74,11 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    //Check if the value is an array or an object intended as a collection
+    return Array.isArray(value) || 
+           (typeof value === 'object' && 
+            value !== null && 
+            !(value instanceof Date));
     
     
     // YOUR CODE ABOVE HERE //
@@ -84,7 +105,16 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    if (value === null) {
+        return "null";
+    }
+    if (Array.isArray(value)) {
+        return "array";
+    }
+    if (value instanceof Date) {
+        return "date";
+    }
+    return typeof value;
     
     
     
